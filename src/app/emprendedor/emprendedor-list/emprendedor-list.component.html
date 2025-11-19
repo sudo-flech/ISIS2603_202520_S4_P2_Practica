@@ -5,7 +5,9 @@
         @for (emprendedor of emprendedores; track emprendedor.id) {
             <div class = "col-md-4 mb-4">
                 <div class="card h-100">
-                    <img [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}" style="width: auto; height: auto;">
+                    <a [routerLink]="['/emprendedores', emprendedor.id]">
+                        <img [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}" style="width: auto; height: auto;">
+                    </a>
                     <div class="card-body d-flex flex-column">
                         <ul>
                             <h5 class="card-title"> {{ emprendedor.nombre }}</h5>
