@@ -12,6 +12,7 @@ export class EmprendedorListComponent implements OnInit {
   // Lista de emprendedores quemada, recuerden que tiene que crear un servicio para obtenerlos del API
   // Por lo tanto, el contenido de esta lista luego lo deben eliminar
   emprendedores: Array<Emprendedor> = []
+  numEmp = 0;
   
   @Output() emprendedorSeleccionado: Emprendedor | null = null;
   seleccionado = false;
@@ -25,11 +26,15 @@ export class EmprendedorListComponent implements OnInit {
   constructor(private emprendedorService: EmprendedorService) { }
   ngOnInit(): void {
     this.loadEmprendedores();
+    this.numEmp = this.emprendedores.length;
   }
 
   loadEmprendedores(): void {
     this.emprendedorService.getEmprendedores().subscribe((data: Emprendedor[]) => {
       this.emprendedores = data;
     })
+
   }
+
+  
 }
